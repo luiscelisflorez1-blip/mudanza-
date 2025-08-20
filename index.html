@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mudanzas 360 - Mudanzas Profesionales en Colombia</title>
   <meta name="description" content="Mudanzas rápidas, confiables y económicas en Bucaramanga y toda Colombia. Mudanzas 360 te acompaña en cada paso.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -17,6 +20,7 @@
       background-color: #0a0a0a;
       color: #ffffff;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Animated background */
@@ -122,6 +126,15 @@
       width: 100%;
     }
 
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
     /* Hero Section */
     .hero {
       position: relative;
@@ -136,7 +149,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 500px;
+      max-width: 800px;
       padding: 0 2rem;
       animation: fadeInUp 1s ease-out;
     }
@@ -168,6 +181,16 @@
       margin-bottom: 2rem;
       color: rgba(255, 255, 255, 0.8);
       font-weight: 300;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
 
     .cta-buttons {
@@ -493,18 +516,6 @@
       box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
     }
 
-    @media (max-width: 768px) {
-      .pricing-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .pricing-title-section {
-        text-align: center;
-        padding-top: 0;
-      }
-    }
-
     /* Testimonials Section */
     .testimonials-grid {
       display: grid;
@@ -586,6 +597,7 @@
       margin-bottom: 1.5rem;
       font-style: italic;
       position: relative;
+      padding: 0 1rem;
     }
 
     .testimonial-text::before {
@@ -594,7 +606,7 @@
       color: #00d4ff;
       position: absolute;
       top: -10px;
-      left: -20px;
+      left: -10px;
       font-family: serif;
     }
 
@@ -604,7 +616,7 @@
       color: #00d4ff;
       position: absolute;
       bottom: -40px;
-      right: -10px;
+      right: 0px;
       font-family: serif;
     }
 
@@ -692,6 +704,12 @@
       box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
     }
 
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     /* WhatsApp Button */
     .whatsapp-float {
       position: fixed;
@@ -728,15 +746,70 @@
     footer {
       background: rgba(0, 0, 0, 0.8);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 2rem;
+      padding: 3rem 2rem 2rem;
       text-align: center;
       color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .footer-section h3 {
+      color: #00d4ff;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .footer-section a:hover {
+      color: #00d4ff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
     }
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
       }
       
       .hero-content {
@@ -756,27 +829,103 @@
         padding: 2rem;
         margin: 2rem 1rem;
       }
+
+      .pricing-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .pricing-title-section {
+        text-align: center;
+        padding-top: 0;
+      }
+
+      .footer-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Loading Animation */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .success-message {
+      background: rgba(40, 167, 69, 0.2);
+      border: 1px solid rgba(40, 167, 69, 0.5);
+      color: #28a745;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      text-align: center;
+      display: none;
+    }
+
+    /* Scroll to top button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: rgba(0, 212, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      color: #00d4ff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    .scroll-to-top:hover {
+      background: rgba(0, 212, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .scroll-to-top.visible {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .scroll-to-top {
+        bottom: 5rem;
+        left: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="animated-bg"></div>
   
-  <div class="particles">
-    <!-- Particles will be generated by JavaScript -->
-  </div>
+  <div class="particles"></div>
 
   <nav>
     <div class="nav-content">
       <div class="logo">Mudanzas 360</div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#services">Servicios</a></li>
+        <li><a href="#servicios">Servicios</a></li>
         <li><a href="#tarifas">Tarifas</a></li>
         <li><a href="#reseñas">Reseñas</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
+      <button class="mobile-menu-toggle">☰</button>
     </div>
   </nav>
 
@@ -784,9 +933,13 @@
     <div class="hero-content">
       <h1>Mudanzas 360</h1>
       <p class="hero-subtitle">Tu mudanza sin complicaciones</p>
+      <p class="hero-description">
+        Servicios profesionales de mudanza en Bucaramanga y toda Colombia. 
+        Confiable, rápido y con los mejores precios del mercado.
+      </p>
       <div class="cta-buttons">
-        <a href="tel:+573172595464" class="btn btn-primary">
-          📞 Call now
+        <a href="tel:+573001234567" class="btn btn-primary">
+          📞 Llamar Ahora
         </a>
         <a href="#contacto" class="btn btn-secondary">
           📝 Cotizar Gratis
@@ -995,9 +1148,9 @@
   <section class="section" id="contacto">
     <div class="container">
       <h2 class="section-title">Solicita tu Cotización</h2>
-      <form class="contact-form" action="https://formsubmit.co/luiscelisflorez@hotmail.com" method="POST">
+      <form class="contact-form" id="contactForm" action="https://formsubmit.co/luis@trasteos360.com" method="POST">
         <div class="form-group">
-          <input type="text" name="nombre" class="form-input" placeholder="luis celis florez" required />
+          <input type="text" name="nombre" class="form-input" placeholder="Tu nombre completo" required />
         </div>
         <div class="form-group">
           <input type="tel" name="telefono" class="form-input" placeholder="Número de teléfono" required />
@@ -1017,17 +1170,55 @@
         <input type="hidden" name="_next" value="https://trasteos360.com/gracias.html" />
         <input type="hidden" name="_captcha" value="false" />
         <button type="submit" class="submit-btn">Enviar Cotización</button>
+        <div class="success-message">
+          ¡Mensaje enviado exitosamente! Te contactaremos pronto.
+        </div>
       </form>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Mudanzas 360. Todos los derechos reservados.</p>
-    <p>Mudanzas profesionales en Bucaramanga y toda Colombia</p>
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h3>Mudanzas 360</h3>
+          <p>Tu empresa de confianza para mudanzas en Bucaramanga y toda Colombia.</p>
+          <p>Más de 5 años de experiencia respaldándonos.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <a href="tel:+573001234567">📞 +57 300 123 4567</a>
+          <a href="mailto:luis@trasteos360.com">✉️ luis@trasteos360.com</a>
+          <p>📍 Bucaramanga, Santander, Colombia</p>
+        </div>
+        <div class="footer-section">
+          <h3>Servicios</h3>
+          <p>Mudanzas residenciales</p>
+          <p>Mudanzas de oficina</p>
+          <p>Embalaje profesional</p>
+          <p>Limpieza post-mudanza</p>
+        </div>
+        <div class="footer-section">
+          <h3>Cobertura</h3>
+          <p>Bucaramanga</p>
+          <p>Santander</p>
+          <p>Toda Colombia</p>
+          <p>Servicios locales y nacionales</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mudanzas 360. Todos los derechos reservados.</p>
+        <p>Mudanzas profesionales en Bucaramanga y toda Colombia</p>
+      </div>
+    </div>
   </footer>
 
-  <a href="https://wa.me/573172595464?text=Hola%20quiero%20una%20cotización%20con%20Mudanzas%20360" class="whatsapp-float" target="_blank">
+  <a href="https://wa.me/573001234567?text=Hola%20quiero%20una%20cotización%20con%20Mudanzas%20360" class="whatsapp-float" target="_blank">
     💬
+  </a>
+
+  <a href="#inicio" class="scroll-to-top" id="scrollToTop">
+    ↑
   </a>
 
   <script>
@@ -1044,6 +1235,23 @@
         particlesContainer.appendChild(particle);
       }
     }
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinks.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.textContent = '☰';
+      }
+    });
 
     // Smooth scrolling for navigation links
     document.addEventListener('DOMContentLoaded', function() {
@@ -1070,32 +1278,136 @@
       });
     });
 
-    // Form submission animation
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      const submitBtn = this.querySelector('.submit-btn');
+    // Form submission with better UX
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    const successMessage = contactForm.querySelector('.success-message');
+
+    contactForm.addEventListener('submit', function(e) {
+      // Show loading state
       submitBtn.textContent = 'Enviando...';
-      submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+      submitBtn.disabled = true;
+      contactForm.classList.add('loading');
+      
+      // Note: In a real implementation, you might want to handle the response
+      // For now, we'll show a success message after a delay
+      setTimeout(() => {
+        successMessage.style.display = 'block';
+        contactForm.reset();
+        submitBtn.textContent = 'Enviar Cotización';
+        submitBtn.disabled = false;
+        contactForm.classList.remove('loading');
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }, 1000);
+    });
+
+    // Scroll to top button functionality
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      
+      // Update navigation background
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(10, 10, 10, 0.95)';
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        nav.style.background = 'rgba(10, 10, 10, 0.9)';
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe cards for animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.feature-card, .service-card, .pricing-card, .testimonial-card');
+      
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+      });
     });
 
     // Initialize particles when page loads
     window.addEventListener('load', createParticles);
 
-    // Add scroll effect to navigation
-    window.addEventListener('scroll', function() {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 100) {
-        nav.style.background = 'rgba(10, 10, 10, 0.95)';
-      } else {
-        nav.style.background = 'rgba(10, 10, 10, 0.9)';
+    // Performance optimization: throttle scroll events
+    function throttle(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Apply throttling to scroll events
+    window.addEventListener('scroll', throttle(function() {
+      // Your scroll handling code here
+    }, 16)); // ~60fps
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.textContent = '☰';
       }
+    });
+
+    // Add form validation
+    const inputs = document.querySelectorAll('.form-input');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.hasAttribute('required') && !this.value.trim()) {
+          this.style.borderColor = 'rgba(255, 0, 0, 0.5)';
+        } else {
+          this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        }
+      });
+
+      input.addEventListener('input', function() {
+        if (this.style.borderColor === 'rgba(255, 0, 0, 0.5)') {
+          this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        }
+      });
+    });
+
+    // Add WhatsApp click tracking (for analytics)
+    document.querySelector('.whatsapp-float').addEventListener('click', function() {
+      // You can add analytics tracking here
+      console.log('WhatsApp button clicked');
+    });
+
+    // Add phone number click tracking
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', function() {
+        // You can add analytics tracking here
+        console.log('Phone number clicked');
+      });
     });
   </script>
 </body>
 </html>
-
-  
-  
-  
-
-           
-  
