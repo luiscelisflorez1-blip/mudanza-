@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-blue-950 text-blue-200;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --background: 220 50% 8%; /* A dark bluish background */
+  --foreground: 210 30% 80%; /* A less intense bluish foreground */
+  --card: 220 50% 10%; /* Slightly lighter than background for cards */
+  --card-foreground: 210 30% 80%;
+  --popover: 220 50% 10%;
+  --popover-foreground: 210 30% 80%;
+  --primary: 210 30% 80%; /* Primary color for buttons/interactive elements (less intense blue) */
+  --primary-foreground: 220 50% 8%; /* Text on primary color (dark blue) */
+  --secondary: 220 50% 15%; /* Secondary elements */
+  --secondary-foreground: 210 30% 80%;
+  --muted: 220 50% 15%;
+  --muted-foreground: 210 20% 60%; /* Muted text */
+  --accent: 220 50% 15%;
+  --accent-foreground: 210 30% 80%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 50% 20%; /* Blue border color */
+  --input: 220 50% 20%;
+  --ring: 210 30% 80%;
+  --radius: 0.5rem;
+}
